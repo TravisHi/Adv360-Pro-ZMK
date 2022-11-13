@@ -24,11 +24,32 @@
 
     default_layer {
       //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
-      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 1 |                                           | Mod 3|   6  |   7  |   8  |   9  |   0  |   -    |
+      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 3 |                                           | Mod 4|   6  |   7  |   8  |   9  |   0  |   -    |
+      //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
+      //   |   TAB  |   "  |   ,  |   .  |   P  |   Y  |      |                                           |      |   F  |   G  |   C  |   R  |   L  |   \    |
+      //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
+      //   |   Esc  |   A  |   O  |   E  |   U  |   I  |Tog 1 |       |L Ctl|L Alt|  |L Gui|R ctl|        |      |   D  |   H  |   T  |   N  |   S  |   "    |
+      //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
+      //   | L Shift|   ;  |   Q  |   J  |   K  |   X  |        |     |     | Home|  |Pg Up|     |     |         |   B  |   M  |   W  |   V  |   Z  | R Shift|
+      //   |--------+------+------+------+------+------'        | Spc |BkSpc|-----|  |-----| Ent | Del |         '------+------+------+------+------+--------|
+      //   |  Mod 3 |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |   )  | Mod 3  |
+      //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
+
+      bindings = <
+        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5    &tog 3                                                                                &mo 4   &kp N6  &kp N7   &kp N8     &kp N9    &kp N0    &kp MINUS
+        &kp TAB   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y     &none                                                                                 &none   &kp F   &kp G    &kp C      &kp R     &kp L     &kp FSLH
+        &kp ESC   &kp A     &kp O     &kp E    &kp U     &kp I     &tog 1                &kp LCTRL &kp LALT                &kp LGUI  &kp RCTRL           &none   &kp D   &kp H    &kp T      &kp N     &kp S     &kp BSLH
+        &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X                 &none     &none     &kp HOME  &none  &none  &kp PG_UP &none      &none            &kp B   &kp M    &kp W      &kp V     &kp Z     &kp RSHFT
+        &mo 3     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                       &kp SPACE &kp BSPC  &kp END                 &kp PG_DN &kp ENTER  &kp DEL                &kp UP   &kp DOWN   &kp LBKT  &kp RBKT  &mo 3
+      >;
+    };
+    qwerty {
+      //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
+      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 3 |                                           | Mod 3|   6  |   7  |   8  |   9  |   0  |   -    |
       //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
       //   |   TAB  |   Q  |   W  |   E  |   R  |   T  |      |                                           |      |   Y  |   U  |   I  |   O  |   P  |   \    |
       //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
-      //   |   Esc  |   A  |   S  |   D  |   F  |   G  |      |       |L Ctl|L Alt|  |L Gui|R ctl|        |      |   H  |   J  |   K  |   L  |   :  |   "    |
+      //   |   Esc  |   A  |   S  |   D  |   F  |   G  |Tog 0 |       |L Ctl|L Alt|  |L Gui|R ctl|        |      |   H  |   J  |   K  |   L  |   :  |   "    |
       //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
       //   | L Shift|   Z  |   X  |   C  |   V  |   B  |        |     |     | Home|  |Pg Up|     |     |         |   N  |   M  |   ,  |   .  |   /  | R Shift|
       //   |--------+------+------+------+------+------'        |BkSpc| Del |-----|  |-----| Ent | Spc |         '------+------+------+------+------+--------|
@@ -36,16 +57,16 @@
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                                       &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 3                                                                       &mo 4 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
         &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                                        &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT             &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &tog 0           &kp LCTRL &kp LALT             &kp LGUI  &kp RCTRL           &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
         &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B         &none    &none     &kp HOME &none &none &kp PG_UP &none     &none           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &mo 3     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 3
       >;
     };
     keypad {
       //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
-      //   |    =   |   1  |   2  |   3  |  4   |   5  |Trans |                                           | Mod 3|   6  |Num Lk|   =  |   /  |   *  |   -    |
+      //   |    =   |   1  |   2  |   3  |  4   |   5  |Trans |                                           | Mod 4|   6  |Num Lk|   =  |   /  |   *  |   -    |
       //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
       //   |   TAB  |   Q  |   W  |   E  |   R  |   T  |      |                                           |      |   Y  |   7  |   8  |   9  |   -  |   \    |
       //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
@@ -53,15 +74,15 @@
       //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
       //   | L Shift|   Z  |   X  |   C  |   V  |   B  |        |     |     | Home|  |Pg Up|     |     |         |   N  |   1  |   2  |   3  |  Ent | R Shift|
       //   |--------+------+------+------+------+------'        |BkSpc| Del |-----|  |-----| Ent | Spc |         '------+------+------+------+------+--------|
-      //   |  Mod 2 |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   .  |   )  | Mod 2  |
+      //   |  Mod 3 |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   .  |   )  | Mod 3  |
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                                       &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
+        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                                       &mo 4 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
         &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                                        &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
         &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT             &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
         &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B         &none    &none     &kp HOME &none &none &kp PG_UP &none     &none           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+        &mo 3     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 3
       >;
     };
     fn {
