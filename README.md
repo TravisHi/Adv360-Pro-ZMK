@@ -16,14 +16,22 @@ The KA360 is built on top of ZMK. Kinesis have implemented their own solution fo
 
 https://zmk.dev/docs
 
-If ZMK is too obscure and you just want a keybinding, here is the Kinesis Mapping Gui https://kinesiscorporation.github.io/Adv360-Pro-GUI/
+
+If ZMK is too obscure and you just want a keybinding, here is the Kinesis Mapping Gui:
+
+https://kinesiscorporation.github.io/Adv360-Pro-GUI/
 
 ## Good forks
 - https://github.com/adrienm7/Adv360-Pro-ZMK/tree/main/config
 
 - https://github.com/chandlerc/Adv360-Pro-ZMK/blob/V2.0/config/keymap.json (Dvorak!)
 
-## Layer template
+## Useful links
+- https://keyboardchecker.com/ (Check your keymap is actually triggering what you expect)
+
+---
+## Keyboard template
+
 ```
 //  *
 //  * ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
