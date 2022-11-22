@@ -24,23 +24,23 @@
 
     default_layer {
       //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
-      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 3 |                                           | Mod 4|   6  |   7  |   8  |   9  |   0  |   -    |
+      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 3 |                                           | Mod 4|   6  |   7  |   8  |   9  |   0  |   \|   |
       //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
-      //   |   Esc  |   "  |   ,  |   .  |   P  |   Y  |      |                                           |      |   F  |   G  |   C  |   R  |   L  |   /?   |
+      //   |   Esc  |   "  |   ,  |   .  |   P  |   Y  |      |                                           |      |   F  |   G  |   C  |   R  |   L  |    )   |
       //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
-      //   |   Tab  |   A  |   O  |   E  |   U  |   I  | To 1 |       |L Ctl|L Alt|  |L Gui|R ctl|        |      |   D  |   H  |   T  |   N  |   S  |   \|   |
+      //   |   Tab  |   A  |   O  |   E  |   U  |   I  | To 1 |       |L Ctl|L Alt|  |L Gui|R ctl|        |      |   D  |   H  |   T  |   N  |   S  |   -    |
       //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
       //   | L Shift|   ;  |   Q  |   J  |   K  |   X  |        |     |Back | Home|  |Pg Up|     |     |         |   B  |   M  |   W  |   V  |   Z  | R Shift|
       //   |--------+------+------+------+------+------'        |Space|Space|-----|  |-----| Del |Enter|         '------+------+------+------+------+--------|
-      //   |  Mo 3  |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |   )  |        |
+      //   |  Mo 3  |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |  /?  |        |
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5 &tog 3                                                                           &mo 4 &kp N6 &kp N7 &kp N8   &kp N9   &kp N0   &kp MINUS
-        &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                            &none &kp F  &kp G  &kp C    &kp R    &kp L    &kp FSLH
-        &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &to 1             &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &none &kp D  &kp H  &kp T    &kp N    &kp S    &kp BSLH
+        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5 &tog 3                                                                           &mo 4 &kp N6 &kp N7 &kp N8   &kp N9   &kp N0   &kp BSLH
+        &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                            &none &kp F  &kp G  &kp C    &kp R    &kp L    &kp RBKT
+        &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &to 1             &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &none &kp D  &kp H  &kp T    &kp N    &kp S    &kp MINUS
         &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X          &none     &none     &kp HOME  &none  &none &kp PG_UP &none     &none           &kp B  &kp M  &kp W    &kp V    &kp Z    &kp RSHFT
-        &mo 3     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER              &kp UP &kp DOWN &kp LBKT &kp RBKT &none
+        &mo 3     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER              &kp UP &kp DOWN &kp LBKT &kp FSLH &none
       >;
     };
     qwerty {
@@ -86,18 +86,18 @@
       >;
     };
     fn {
-      // aka Mod 3
+      // aka Mod 3 (Bottom left sub shift button)
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                                       &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans &none                                                        &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans &none        &trans &trans             &trans &trans         &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none  &none        &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &trans &trans              &kp C_VOL_UP &kp K_VOL_DN &trans  &trans  &trans
+        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                                            &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+        &trans &trans &trans &trans &trans &trans &none                                                             &none &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans &trans &none        &trans &trans             &trans &trans              &none &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none       &none        &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &kp C_MUTE &trans               &kp C_VOL_UP &kp C_VOL_DN &trans  &trans  &trans
       >;
     };
     mod {
       // KEYBOARD FUNCTIONALITIES
-      // Aka Mod 4
+      // Aka Mod 4 (Right Top Middle button)
       //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
       //   |        |bth 0 |bth 1 |bth 2 |bth 3 |bth 4 |      |                                           | Trans|bth 0 |bth 1 |bth 2 |bth 3 |bth 4 |        |
       //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
