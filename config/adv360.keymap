@@ -32,7 +32,7 @@
       //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
       //   | L Shift|   ;  |   Q  |   J  |   K  |   X  |        |     |Back | Home|  |Pg Up|     |     |         |   B  |   M  |   W  |   V  |   Z  | R Shift|
       //   |--------+------+------+------+------+------'        |Space|Space|-----|  |-----| Del |Enter|         '------+------+------+------+------+--------|
-      //   |  Mo 3  |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |  /?  |        |
+      //   |  Mod 4 |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |  /?  |        |
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
@@ -40,7 +40,7 @@
         &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                            &none &kp F  &kp G  &kp C    &kp R    &kp L    &kp RBKT
         &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &to 1             &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &none &kp D  &kp H  &kp T    &kp N    &kp S    &kp MINUS
         &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X          &none     &none     &kp HOME  &none  &none &kp PG_UP &none     &none           &kp B  &kp M  &kp W    &kp V    &kp Z    &kp RSHFT
-        &mo 3     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER              &kp UP &kp DOWN &kp LBKT &kp FSLH &none
+        &mo 4     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER              &kp UP &kp DOWN &kp LBKT &kp FSLH &none
       >;
     };
     qwerty {
