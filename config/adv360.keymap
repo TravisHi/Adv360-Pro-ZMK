@@ -4,18 +4,43 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
 
+#define DVORAK  0
+#define QWERTY  1
+#define SYMBOLS 2
+#define CONFIG  3
+
 / {
     behaviors {
       #include "macros.dtsi"
 
       hm: homerow_mods {
-          compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MODS";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          flavor = "tap-preferred";
-          bindings = <&kp>, <&kp>;
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;
+        quick_tap_ms = <175>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+      };
+      td_lbk: tap_dance_mod_tap {
+        // Single Tap     = (
+        // Press and hold = {
+        // Double tap     = [
+        compatible = "zmk,behavior-tap-dance";
+        label = "TAP_DANCE_MOD_TAP";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&mt LEFT_BRACE LEFT_PARENTHESIS>, <&kp LEFT_BRACKET>;
+      };
+      td_rbk: tap_dance_mod_tap {
+        // Single Tap     = )
+        // Press and hold = }
+        // Double tap     = ]
+        compatible = "zmk,behavior-tap-dance";
+        label = "TAP_DANCE_MOD_TAP";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&mt RIGHT_BRACE RIGHT_PARENTHESIS>, <&kp RIGHT_BRACKET>;
       };
     };
 
@@ -24,98 +49,88 @@
 
     default_layer {
       //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
-      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 3 |                                           | Mod 4|   6  |   7  |   8  |   9  |   0  |   \|   |
+      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 1 |                                           |      |   6  |   7  |   8  |   9  |   0  |   \|   |
       //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
       //   |   Esc  |   "  |   ,  |   .  |   P  |   Y  |      |                                           |      |   F  |   G  |   C  |   R  |   L  |    )   |
       //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
-      //   |   Tab  |   A  |   O  |   E  |   U  |   I  | To 1 |       |L Ctl|L Alt|  |L Gui|R ctl|        |      |   D  |   H  |   T  |   N  |   S  |   -    |
+      //   |   Tab  |   A  |   O  |   E  |   U  |   I  | ({[  |       |L Ctl|L Alt|  |L Gui|R ctl|        |  ]}) |   D  |   H  |   T  |   N  |   S  |   -    |
       //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
       //   | L Shift|   ;  |   Q  |   J  |   K  |   X  |        |     |Back | Home|  |Pg Up|     |     |         |   B  |   M  |   W  |   V  |   Z  | R Shift|
       //   |--------+------+------+------+------+------'        |Space|Space|-----|  |-----| Del |Enter|         '------+------+------+------+------+--------|
-      //   |  Mod 4 |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |  /?  |        |
+      //   |  Mo 2  |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |  /?  |  Mo 2  |
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5 &tog 3                                                                           &mo 4 &kp N6 &kp N7 &kp N8   &kp N9   &kp N0   &kp BSLH
-        &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                            &none &kp F  &kp G  &kp C    &kp R    &kp L    &kp RBKT
-        &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &to 1             &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &none &kp D  &kp H  &kp T    &kp N    &kp S    &kp MINUS
-        &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X          &none     &none     &kp HOME  &none  &none &kp PG_UP &none     &none           &kp B  &kp M  &kp W    &kp V    &kp Z    &kp RSHFT
-        &mo 4     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER              &kp UP &kp DOWN &kp LBKT &kp FSLH &none
+        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5 &tog 1                                                                           &none   &kp N6 &kp N7 &kp N8   &kp N9   &kp N0   &kp BSLH
+        &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                            &none   &kp F  &kp G  &kp C    &kp R    &kp L    &kp RBKT
+        &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &td_lbk           &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &td_rbk &kp D  &kp H  &kp T    &kp N    &kp S    &kp MINUS
+        &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X          &none     &none     &kp HOME &none   &none &kp PG_UP &none     &none             &kp B  &kp M  &kp W    &kp V    &kp Z    &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER                &kp UP &kp DOWN &kp LBKT &kp FSLH &mo 2
       >;
     };
-    qwerty {
+    QWERTY {
       //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
-      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 3 |                                           | Mod 4|   6  |   7  |   8  |   9  |   0  |   -    |
+      //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 1 |                                           | Mo 3 |   6  |   7  |   8  |   9  |   0  |   -    |
       //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
-      //   |   TAB  |   Q  |   W  |   E  |   R  |   T  |      |                                           |      |   Y  |   U  |   I  |   O  |   P  |   \    |
+      //   |   Esc  |   Q  |   W  |   E  |   R  |   T  | Mo 3 |                                           |      |   Y  |   U  |   I  |   O  |   P  |   \    |
       //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
-      //   |   Esc  |   A  |   S  |   D  |   F  |   G  | To 0 |       |L Ctl|L Alt|  |L Gui|R ctl|        |      |   H  |   J  |   K  |   L  |   :  |   "    |
+      //   |   Tab  |   A  |   S  |   D  |   F  |   G  | ({[  |       |L Ctl|L Alt|  |L Gui|R ctl|        |  ]}) |   H  |   J  |   K  |   L  |   :  |   "    |
       //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
-      //   | L Shift|   Z  |   X  |   C  |   V  |   B  |        |     |     | Home|  |Pg Up|     |     |         |   N  |   M  |   ,  |   .  |   /  | R Shift|
-      //   |--------+------+------+------+------+------'        |BkSpc| Del |-----|  |-----| Ent | Spc |         '------+------+------+------+------+--------|
-      //   |  Mod 3 |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |   )  | Mod 3  |
+      //   | L Shift|   Z  |   X  |   C  |   V  |   B  |        |     |Back | Home|  |Pg Up|     |     |         |   N  |   M  |   ,  |   .  |  /?  | R Shift|
+      //   |--------+------+------+------+------+------'        |Space|Space|-----|  |-----| Del |Enter|         '------+------+------+------+------+--------|
+      //   |  Mo 2  |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |   )  |  Mo 2  |
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 3                                                                       &mo 4 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                                        &none &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &to 0           &kp LCTRL &kp LALT            &kp LGUI  &kp RCTRL            &none &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B         &none    &none     &kp HOME &none &none &kp PG_UP &none     &none           &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 3     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 3
+        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                                              &mo 3   &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp ESC   &kp Q     &kp W    &kp E    &kp R      &kp T  &mo 3                                                                               &none   &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
+        &kp TAB   &kp A     &kp S    &kp D    &kp F      &kp G  &td_lbk            &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL             &td_rbk &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B           &none     &none     &kp HOME &none   &none &kp PG_UP &none     &none               &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                  &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
       >;
     };
-    keypad {
-      //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
-      //   |    =   |   1  |   2  |   3  |  4   |   5  |Trans |                                           | Mod 4|   6  |Num Lk|   =  |   /  |   *  |   -    |
-      //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
-      //   |   TAB  |   Q  |   W  |   E  |   R  |   T  |      |                                           |      |   Y  |   7  |   8  |   9  |   -  |   \    |
-      //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
-      //   |   Esc  |   A  |   S  |   D  |   F  |   G  |      |       |L Ctl|L Alt|  |L Gui|R ctl|        |      |   H  |   4  |   5  |   6  |   +  |   "    |
-      //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
-      //   | L Shift|   Z  |   X  |   C  |   V  |   B  |        |     |     | Home|  |Pg Up|     |     |         |   N  |   1  |   2  |   3  |  Ent | R Shift|
-      //   |--------+------+------+------+------+------'        |BkSpc| Del |-----|  |-----| Ent | Spc |         '------+------+------+------+------+--------|
-      //   |  Mod 3 |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   .  |   )  | Mod 3  |
-      //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
+    SYMBOLS {
+      //   ,--------------------------------------------------.                                           ,---------------------------------------------------.                      
+      //   |    =   |      |      |      |      |      |Tog 1 |                                           |      |      |      |      |       |      |        |
+      //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+-------+------+--------|
+      //   |   TAB  |   !  |   @  |   #  |   $  |   %  |      |                                           |      |   ^  |   &  |   *  |   (   |   )  |  F11   |
+      //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+-------+------+--------|
+      //   |   Esc  |   1  |   2  |   3  |   4  |   5  | ({[  |       |L Ctl|L Alt|  |L Gui|R ctl|        |  ]}) |   6  |   7  |   8  |   9   |   0  |  F12   |
+      //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+-------+------+--------|
+      //   | L Shift|  F1  |  F2  |  F3  |  F4  |  F5  |        |     |Back | Home|  |Pg Up|     |     |         |  F6  |  F7  |  F8  |  F9   |  F10 | R Shift|
+      //   |--------+------+------+------+------+------'        |Space|Space|-----|  |-----| Del |Enter|         '------+------+------+-------+------+--------|
+      //   |  Mo 2  |   `  | CAPS |BL Dec|BL Inc|               |     |     | End |  |Pg Dn|     |     |                |Vol Up|VolDwn|VolMute|   )  | Mod 2  |
+      //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+-------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                                       &mo 4 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                                        &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &kp LCTRL &kp LALT             &kp LGUI  &kp RCTRL           &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B         &none    &none     &kp HOME &none &none &kp PG_UP &none     &none           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-        &mo 3     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END              &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 3
+        &kp EQUAL &none     &none    &none      &none      &none     &tog 1                                                                             &none   &none     &none        &none         &none      &none        &none
+        &kp ESC   &kp EXCL  &kp AT   &kp HASH   &kp DLLR   &kp PRCNT &none                                                                              &none   &kp CARET &kp AMPS     &kp STAR      &kp LPAR   &kp RPAR &kp F11
+        &kp TAB   &kp N1    &kp N2   &kp N3     &kp N4     &kp N5    &td_lbk             &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &td_rbk &kp N6    &kp N7       &kp N8        &kp N9     &kp N0       &kp F12
+        &kp LSHFT &kp F1    &kp F2   &kp F3     &kp F4     &kp F5              &none     &none     &kp HOME &none   &none &kp PG_UP &none     &none             &kp F6    &kp F7       &kp F8        &kp F9     &kp F10      &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS &bl BL_DEC &bl BL_INC                     &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER                   &kp C_VOL_UP &kp C_VOL_DN  &kp C_MUTE &kp RBKT     &mo 2
       >;
     };
-    fn {
-      // aka Mod 3 (Bottom left sub shift button)
-      bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                                            &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans &none                                                             &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans &none        &trans &trans             &trans &trans              &none &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none       &none        &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &kp C_MUTE &trans               &kp C_VOL_UP &kp C_VOL_DN &trans  &trans  &trans
-      >;
-    };
-    mod {
+    CONFIG {
       // KEYBOARD FUNCTIONALITIES
-      // Aka Mod 4 (Right Top Middle button)
+      // Aka Mo 3 (Danger modes in here, bootloader and bluetooth config layer)
       //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
-      //   |        |bth 0 |bth 1 |bth 2 |bth 3 |bth 4 |      |                                           | Trans|bth 0 |bth 1 |bth 2 |bth 3 |bth 4 |        |
+      //   |BOOTLOAD|bth 0 |bth 1 |bth 2 |bth 3 |bth 4 |      |                                           | Mo 3 |      |      |      |      |      |BOOTLOAD|
       //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
-      //   |        |      |      |      |      |      |BOOTL |                                           |BOOTL |      |      |      |      |      |        |
+      //   |        |      |      |      |      |      | Mo 3 |                                           |      |      |      |      |      |      |        |
       //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
       //   |        |      |      |      |      |      |RGB Up|       |BtClr|BtClr|  |BtClr|BtClr|        |RGB Up|      |      |      |      |      |        |
       //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
       //   |        |      |      |      |      |      |        |RGB  |Back |     |  |     |Back |RGB  |         |      |      |      |      |      |        |
       //   |--------+------+------+------+------+------'        |Indic|Light|-----|  |-----|Light|Indic|         '------+------+------+------+------+--------|
-      //   |        |      |      |BL Inc|BL Dec|               |Tog  |Tog  |     |  |     |Tog  |Tog  |                |      |      |      |      |        |
+      //   |        |      |      |      |      |               |Tog  |Tog  |     |  |     |Tog  |Tog  |                |      |      |      |      |        |
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                                                          &trans                 &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none
-        &none &none        &none        &none        &none        &none        &bootloader                                                                                                    &bootloader            &none        &none        &none        &none        &none        &none
-        &none &none        &none        &none        &none        &none        &rgb_ug RGB_MEFS_CMD 5                 &bt BT_CLR &bt BT_CLR             &bt BT_CLR &bt BT_CLR                 &rgb_ug RGB_MEFS_CMD 5 &none        &none        &none        &none        &none        &none
-        &none &none        &none        &none        &none        &none                               &none           &none      &none      &none &none &none      &none      &none                                  &none        &none        &none        &none        &none        &none
-        &none &none        &none        &bl BL_INC   &bl BL_DEC                                       &rgb_ug RGB_TOG &bl BL_TOG &none                  &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none        &none        &none
+        &bootloader &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                                                                   &mo 3                  &none &none &none &none &none &bootloader
+        &none       &none        &none        &none        &none        &none        &mo 3                                                                                                                   &none                  &none &none &none &none &none &none
+        &none       &none        &none        &none        &none        &none        &rgb_ug RGB_MEFS_CMD 5                   &bt BT_CLR &bt BT_CLR                 &bt BT_CLR &bt BT_CLR                    &rgb_ug RGB_MEFS_CMD 5 &none &none &none &none &none &none
+        &none       &none        &none        &none        &none        &none                                 &none           &none      &none      &none     &none &none      &none      &none                                     &none &none &none &none &none &none
+        &none       &none        &none        &none        &none                                              &rgb_ug RGB_TOG &bl BL_TOG &none                      &none      &bl BL_TOG &rgb_ug RGB_TOG                                 &none &none &none &none &none
       >;
     };
   };
