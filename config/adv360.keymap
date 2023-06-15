@@ -27,7 +27,7 @@
         // Press and hold = {
         // Double tap     = [
         compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_MOD_TAP";
+        label = "TAP_DANCE_MOD_LBKS";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
         bindings = <&mt LEFT_BRACE LEFT_PARENTHESIS>, <&kp LEFT_BRACKET>;
@@ -37,7 +37,7 @@
         // Press and hold = }
         // Double tap     = ]
         compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_MOD_TAP";
+        label = "TAP_DANCE_MOD_RBKS";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
         bindings = <&mt RIGHT_BRACE RIGHT_PARENTHESIS>, <&kp RIGHT_BRACKET>;
