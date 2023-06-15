@@ -13,6 +13,8 @@ The `middle bottom` keys (`col 7/col 8`, `row 3`), Contain Single Tap for `(`, P
 <br/>
 <br/>
 
+![Alt text](kinesis-advantage-360-pro.png)
+
 ## Layers
 - **DVORAK** - default layer (`Tog 1` to swap in and out of Qwerty layer)
 
@@ -60,6 +62,7 @@ https://kinesiscorporation.github.io/Adv360-Pro-GUI/
 
 ### Useful links
 - https://keyboardchecker.com/ (Check your keymap is actually triggering what you expect)
+- http://www.keyboard-layout-editor.com/ Image map for keyboard layouts.
 
 ---
 ## K360 Keyboard Keymap template
