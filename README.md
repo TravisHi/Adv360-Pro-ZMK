@@ -16,17 +16,20 @@ The `middle bottom` keys (`col 7/col 8`, `row 3`), Contain Single Tap for `(`, P
 ![Alt text](kinesis-advantage-360-pro.png)
 
 ## Layers
-- **DVORAK** - default layer (`Tog 1` to swap in and out of Qwerty layer)
+- **DVORAK** - default layer (`Tog 1` to swap in and out of Qwerty layer)<br/>
+RGB indicator light = None <br/><br/>
 
-- **QWERTY** - `tog 1`, Layer 1 is to avoid having to rebind software like blender, and houses access to the danger `CONFIG` layer via `Mo 3`,
+- **QWERTY** - `tog 1`,  Layer 1 is to avoid having to rebind software like blender, and houses access to the danger `CONFIG` layer via `Mo 3`. <div style="display: flex; align-items: center;">RGB indicator light = <div style="margin-left: 5px; margin-right: 5px; height: 15px; width: 15px; background-color: white; border-radius: 50%"></div> (white)</div><br/>
 
-- **SYMBOLS** - `mo 2`, Layer 2, contains handy home row access to numbers and media controls, and some non-dangerous keyboard config controls.
+- **SYMBOLS** - `mo 2`, Layer 2, contains handy home row access to numbers and media controls, and some non-dangerous keyboard config controls. <div style="display: flex; align-items: center;">RGB indicator light = <div style="margin-left: 5px; margin-right: 5px; height: 15px; width: 15px; background-color: blue; border-radius: 50%"></div> (blue)</div><br/>
 
-- **CONFIG** - `mo 3`,  **Danger layer**, contains keyboard specific keybinds such as handling ZMK Bluetooth profiles, RGB lighting controls and dangerous `BOOTLOADER` keys. This access layer is purposely hidden in the `QWERTY` layer and is intentionally difficult to use to avoid accidentally entering BOOTLOAD or Bluetooth Select mode.
-<br/>
-<br/>
+- **CONFIG** - `mo 3`,  **Danger layer**, contains keyboard specific keybinds such as handling ZMK Bluetooth profiles, RGB lighting controls and dangerous `BOOTLOADER` keys. This access layer is purposely hidden in the `QWERTY` layer and is intentionally difficult to use to avoid accidentally entering BOOTLOAD or Bluetooth Select mode. <div style="display: flex; align-items: center;">RGB indicator light = <div style="margin-left: 5px; margin-right: 5px; height: 15px; width: 15px; background-color: lightgreen; border-radius: 50%"></div> (green)</div><br/>
+
+### Note:
+RGB Indicator colors are not configured by ZMK, they are a feature created by Kinesis.
 
 ---
+
 <br/>
 
 ## ADV360-PRO-ZMK
