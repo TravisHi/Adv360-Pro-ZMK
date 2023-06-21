@@ -23,9 +23,6 @@
         bindings = <&kp>, <&kp>;
       };
       td_lbk: tap_dance_mod_tap {
-        // Single Tap     = (
-        // Press and hold = {
-        // Double tap     = [
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_MOD_LBKS";
         #binding-cells = <0>;
@@ -33,9 +30,6 @@
         bindings = <&mt LEFT_BRACE LEFT_PARENTHESIS>, <&kp LEFT_BRACKET>;
       };
       td_rbk: tap_dance_mod_tap {
-        // Single Tap     = )
-        // Press and hold = }
-        // Double tap     = ]
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_MOD_RBKS";
         #binding-cells = <0>;
@@ -43,7 +37,6 @@
         bindings = <&mt RIGHT_BRACE RIGHT_PARENTHESIS>, <&kp RIGHT_BRACKET>;
       };
     };
-
   keymap {
     compatible = "zmk,keymap";
 
