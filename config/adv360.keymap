@@ -22,14 +22,14 @@
         flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
       };
-      td_lbk: tap_dance_mod_tap {
+      td_lbk: tap_dance_left_parens {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_MOD_LBKS";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
         bindings = <&mt LEFT_BRACE LEFT_PARENTHESIS>, <&kp LEFT_BRACKET>;
       };
-      td_rbk: tap_dance_mod_tap {
+      td_rbk: tap_dance_right_parens {
         compatible = "zmk,behavior-tap-dance";
         label = "TAP_DANCE_MOD_RBKS";
         #binding-cells = <0>;
