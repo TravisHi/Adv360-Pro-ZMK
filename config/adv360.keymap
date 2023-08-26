@@ -36,6 +36,13 @@
         tapping-term-ms = <200>;
         bindings = <&mt RIGHT_BRACE RIGHT_PARENTHESIS>, <&kp RIGHT_BRACKET>;
       };
+      td_arfun: tap_dance_arrow_function {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TAP_DANCE_MOD_ARFUN";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&mt PLUS EQUAL>, <&kp GREATER_THAN>;
+      };
     };
   keymap {
     compatible = "zmk,keymap";
@@ -44,21 +51,21 @@
       //   ,--------------------------------------------------.                                           ,--------------------------------------------------.                      
       //   |    =   |   1  |   2  |   3  |  4   |   5  |Tog 1 |                                           |      |   6  |   7  |   8  |   9  |   0  |   \|   |
       //   |--------+------+------+------+------+------+------|                                           |------+------+------+------+------+------+--------|
-      //   |   Esc  |   "  |   ,  |   .  |   P  |   Y  |      |                                           |      |   F  |   G  |   C  |   R  |   L  |    )   |
+      //   |   Esc  |   "  |   ,  |   .  |   P  |   Y  |      |                                           | + = >|   F  |   G  |   C  |   R  |   L  |    )   |
       //   |--------+------+------+------+------+------+------|       ,-----+-----.  ,-----+-----.        |------+------+------+------+------+------+--------|
       //   |   Tab  |   A  |   O  |   E  |   U  |   I  | ({[  |       |L Ctl|L Alt|  |L Gui|R ctl|        |  ]}) |   D  |   H  |   T  |   N  |   S  |   -    |
       //   |--------+------+------+------+------+------+------' .-----+-----+-----|  |-----+-----+-----.  '------+------+------+------+------+------+--------|
-      //   | L Shift|   ;  |   Q  |   J  |   K  |   X  |        |     |Back | Home|  |Pg Up|     |     |         |   B  |   M  |   W  |   V  |   Z  | R Shift|
+      //   | L Shift|   ;  |   Q  |   J  |   K  |   X  |        |     |Back | Home|  | ({[ |     |     |         |   B  |   M  |   W  |   V  |   Z  | R Shift|
       //   |--------+------+------+------+------+------'        |Space|Space|-----|  |-----| Del |Enter|         '------+------+------+------+------+--------|
-      //   |  Mo 2  |   `  | CAPS | Left | Right|               |     |     | End |  |Pg Dn|     |     |                |  Up  | Down |   (  |  /?  |  Mo 2  |
+      //   |  Mo 2  |   `  | CAPS | Left | Right|               |     |     | End |  | ]}) |     |     |                |  Up  | Down |   (  |  /?  |  Mo 2  |
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5 &tog 1                                                                           &none   &kp N6 &kp N7 &kp N8   &kp N9   &kp N0   &kp BSLH
-        &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                            &none   &kp F  &kp G  &kp C    &kp R    &kp L    &kp RBKT
-        &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &td_lbk           &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &td_rbk &kp D  &kp H  &kp T    &kp N    &kp S    &kp MINUS
-        &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X          &none     &none     &kp HOME &none   &none &kp PG_UP &none     &none             &kp B  &kp M  &kp W    &kp V    &kp Z    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER                &kp UP &kp DOWN &kp LBKT &kp FSLH &mo 2
+        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5 &tog 1                                                                           &none     &kp N6 &kp N7 &kp N8   &kp N9   &kp N0   &kp BSLH
+        &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                            &td_arfun &kp F  &kp G  &kp C    &kp R    &kp L    &kp RBKT
+        &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &td_lbk           &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &td_rbk   &kp D  &kp H  &kp T    &kp N    &kp S    &kp MINUS
+        &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X          &none     &none     &kp HOME &none   &none &td_lbk   &none     &none               &kp B  &kp M  &kp W    &kp V    &kp Z    &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &td_rbk   &kp DEL   &kp ENTER                  &kp UP &kp DOWN &kp LBKT &kp FSLH &mo 2
       >;
     };
     QWERTY {

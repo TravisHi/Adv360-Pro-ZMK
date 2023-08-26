@@ -13,7 +13,7 @@ The `middle bottom` keys (`col 7/col 8`, `row 3`), Contain Single Tap for `(`, P
 <br/>
 <br/>
 
-![Alt text](kinesis-advantage-360-pro.png)
+![Alt text](image.png)
 
 ## Layers
 - **DVORAK** - default layer (`Tog 1` to swap in and out of Qwerty layer)<br/>
