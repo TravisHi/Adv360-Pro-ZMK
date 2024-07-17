@@ -1,21 +1,44 @@
-TIMESTAMP := $(shell date -u +"%Y%m%d%H%M%S")
 DOCKER := $(shell { command -v podman || command -v docker; })
+TIMESTAMP := $(shell date -u +"%Y%m%d%H%M")
+COMMIT := $(shell git rev-parse --short HEAD 2>/dev/null)
+ifeq ($(shell uname),Darwin)
+SELINUX1 :=
+SELINUX2 :=
+else
+SELINUX1 := :z
+SELINUX2 := ,z
+endif
 
-.PHONY: clean setup
+.PHONY: all left clean_firmware clean_image clean
 
-all: setup build
+all:
+	$(shell bin/get_version.sh >> /dev/null)
+	$(DOCKER) build --tag zmk --file Dockerfile .
+	$(DOCKER) run --rm -it --name zmk \
+		-v $(PWD)/firmware:/app/firmware$(SELINUX1) \
+		-v $(PWD)/config:/app/config:ro$(SELINUX2) \
+		-e TIMESTAMP=$(TIMESTAMP) \
+		-e COMMIT=$(COMMIT) \
+		-e BUILD_RIGHT=true \
+		zmk
+	git checkout config/version.dtsi
 
-build: firmware/$$(TIMESTAMP)-left.uf2 firmware/$$(TIMESTAMP)-right.uf2
+left:
+	$(shell bin/get_version.sh >> /dev/null)
+	$(DOCKER) build --tag zmk --file Dockerfile .
+	$(DOCKER) run --rm -it --name zmk \
+		-v $(PWD)/firmware:/app/firmware$(SELINUX1) \
+		-v $(PWD)/config:/app/config:ro$(SELINUX2) \
+		-e TIMESTAMP=$(TIMESTAMP) \
+		-e COMMIT=$(COMMIT) \
+		-e BUILD_RIGHT=false \
+		zmk
+	git checkout config/version.dtsi
 
-clean:
+clean_firmware:
 	rm -f firmware/*.uf2
 
-firmware/%-left.uf2 firmware/%-right.uf2: config/adv360.keymap
-	$(DOCKER) run --rm -it --name zmk \
-		-v $(PWD)/firmware:/app/firmware \
-		-v $(PWD)/config:/app/config:ro \
-		-e TIMESTAMP=$(TIMESTAMP) \
-		zmk
+clean_image:
+	$(DOCKER) image rm zmk docker.io/zmkfirmware/zmk-build-arm:stable
 
-setup: Dockerfile bin/build.sh config/west.yml
-	$(DOCKER) build --tag zmk --file Dockerfile .
+clean: clean_firmware clean_image
