@@ -61,11 +61,11 @@
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5 &tog 1                                                                           &none     &kp N6 &kp N7 &kp N8   &kp N9   &kp N0   &kp BSLH
-        &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                            &td_arfun &kp F  &kp G  &kp C    &kp R    &kp L    &kp RBKT
-        &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &td_lbk           &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &td_rbk   &kp D  &kp H  &kp T    &kp N    &kp S    &kp MINUS
-        &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X          &none     &none     &kp HOME &none   &none &td_lbk   &none     &none               &kp B  &kp M  &kp W    &kp V    &kp Z    &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END                &td_rbk   &kp DEL   &kp ENTER                  &kp UP &kp DOWN &kp LBKT &kp FSLH &mo 2
+        &kp EQUAL &kp N1    &kp N2    &kp N3   &kp N4    &kp N5 &tog 1                                                               &none     &kp N6 &kp N7 &kp N8   &kp N9   &kp N0   &kp BSLH
+        &kp ESC   &kp SQT   &kp COMMA &kp DOT  &kp P     &kp Y  &none                                                                &td_arfun &kp F  &kp G  &kp C    &kp R    &kp L    &kp RBKT
+        &kp TAB   &kp A     &kp O     &kp E    &kp U     &kp I  &td_lbk           &kp LCTRL &kp LALT  &kp LGUI  &kp RCTRL            &td_rbk   &kp D  &kp H  &kp T    &kp N    &kp S    &kp MINUS
+        &kp LSHFT &kp SEMI  &kp Q     &kp J    &kp K     &kp X                              &kp HOME  &td_lbk                                 &kp B  &kp M  &kp W    &kp V    &kp Z    &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS  &kp LEFT &kp RIGHT                &kp SPACE &kp BSPC  &kp END   &td_rbk   &kp DEL   &kp ENTER                  &kp UP &kp DOWN &kp LBKT &kp FSLH &mo 2
       >;
     };
     QWERTY {
@@ -82,11 +82,11 @@
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                                              &mo 3   &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp ESC   &kp Q     &kp W    &kp E    &kp R      &kp T  &mo 3                                                                               &none   &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
-        &kp TAB   &kp A     &kp S    &kp D    &kp F      &kp G  &td_lbk            &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL             &td_rbk &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B           &none     &none     &kp HOME &none   &none &kp PG_UP &none     &none               &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                  &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                                 &mo 3   &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp ESC   &kp Q     &kp W    &kp E    &kp R      &kp T  &mo 3                                                                  &none   &kp Y  &kp U  &kp I     &kp O    &kp P    &kp BSLH
+        &kp TAB   &kp A     &kp S    &kp D    &kp F      &kp G  &td_lbk            &kp LCTRL &kp LALT  &kp LGUI  &kp RCTRL             &td_rbk &kp H  &kp J  &kp K     &kp L    &kp SEMI &kp SQT
+        &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                               &kp HOME  &kp PG_UP                               &kp N  &kp M  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                  &kp SPACE &kp BSPC  &kp END   &kp PG_DN &kp DEL   &kp ENTER                  &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
       >;
     };
     SYMBOLS {
@@ -103,11 +103,11 @@
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+-------+------+--------'
 
       bindings = <
-        &kp EQUAL &none     &none    &none      &none      &none     &tog 1                                                                             &none   &none     &none        &none         &none      &none        &none
-        &kp ESC   &kp EXCL  &kp AT   &kp HASH   &kp DLLR   &kp PRCNT &none                                                                              &none   &kp CARET &kp AMPS     &kp STAR      &kp LPAR   &kp RPAR &kp F11
-        &kp TAB   &kp N1    &kp N2   &kp N3     &kp N4     &kp N5    &td_lbk             &kp LCTRL &kp LALT               &kp LGUI  &kp RCTRL           &td_rbk &kp N6    &kp N7       &kp N8        &kp N9     &kp N0       &kp F12
-        &kp LSHFT &kp F1    &kp F2   &kp F3     &kp F4     &kp F5              &none     &none     &kp HOME &none   &none &kp PG_UP &none     &none             &kp F6    &kp F7       &kp F8        &kp F9     &kp F10      &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &bl BL_DEC &bl BL_INC                     &kp SPACE &kp BSPC  &kp END                &kp PG_DN &kp DEL   &kp ENTER                   &kp C_VOL_UP &kp C_VOL_DN  &kp C_MUTE &kp RBKT     &mo 2
+        &kp EQUAL &none     &none    &none      &none      &none     &tog 1                                                                &none   &none     &none        &none         &none      &none        &none
+        &kp ESC   &kp EXCL  &kp AT   &kp HASH   &kp DLLR   &kp PRCNT &none                                                                 &none   &kp CARET &kp AMPS     &kp STAR      &kp LPAR   &kp RPAR &kp F11
+        &kp TAB   &kp N1    &kp N2   &kp N3     &kp N4     &kp N5    &td_lbk             &kp LCTRL &kp LALT  &kp LGUI  &kp RCTRL           &td_rbk &kp N6    &kp N7       &kp N8        &kp N9     &kp N0       &kp F12
+        &kp LSHFT &kp F1    &kp F2   &kp F3     &kp F4     &kp F5                                  &kp HOME  &kp PG_UP                             &kp F6    &kp F7       &kp F8        &kp F9     &kp F10      &kp RSHFT
+        &mo 2     &kp GRAVE &kp CAPS &bl BL_DEC &bl BL_INC                     &kp SPACE &kp BSPC  &kp END   &kp PG_DN &kp DEL   &kp ENTER                   &kp C_VOL_UP &kp C_VOL_DN  &kp C_MUTE &kp RBKT     &mo 2
       >;
     };
     CONFIG {
@@ -126,11 +126,11 @@
       //   `--------+------+------+------+------'               `-----+-----+-----'  `-----+-----+-----'                '------+------+------+------+--------'
 
       bindings = <
-        &bootloader &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                                                                   &mo 3                  &none &none &none &none &none &bootloader
-        &none       &none        &none        &none        &none        &none        &mo 3                                                                                                                   &none                  &none &none &none &none &none &none
-        &none       &none        &none        &none        &none        &none        &rgb_ug RGB_MEFS_CMD 5                   &bt BT_CLR &bt BT_CLR                 &bt BT_CLR &bt BT_CLR                    &rgb_ug RGB_MEFS_CMD 5 &none &none &none &none &none &none
-        &none       &none        &none        &none        &none        &none                                 &none           &none      &none      &none     &none &none      &none      &none                                     &none &none &none &none &none &none
-        &none       &none        &none        &none        &none                                              &rgb_ug RGB_TOG &bl BL_TOG &none                      &none      &bl BL_TOG &rgb_ug RGB_TOG                                 &none &none &none &none &none
+        &bootloader &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                                                    &mo 3                  &none &none &none &none &none &bootloader
+        &none       &none        &none        &none        &none        &none        &mo 3                                                                                                    &none                  &none &none &none &none &none &none
+        &none       &none        &none        &none        &none        &none        &rgb_ug RGB_MEFS_CMD 5                   &bt BT_CLR &bt BT_CLR  &bt BT_CLR &bt BT_CLR                    &rgb_ug RGB_MEFS_CMD 5 &none &none &none &none &none &none
+        &none       &none        &none        &none        &none        &none                                                            &none       &none                                                           &none &none &none &none &none &none
+        &none       &none        &none        &none        &none                                              &rgb_ug RGB_TOG &bl BL_TOG &none       &none      &bl BL_TOG &rgb_ug RGB_TOG                                 &none &none &none &none &none
       >;
     };
   };
